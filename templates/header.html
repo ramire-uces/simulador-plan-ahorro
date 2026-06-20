@@ -1,0 +1,32 @@
+{% load static %}
+
+<header class="hero">
+
+    <div class="hero-overlay">
+
+        <!-- barra superior -->
+        <div class="hero-top">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </div>
+
+            <div class="hero-actions">
+                <a href="{% url 'panel_solicitudes' %}" class="btn-admin">
+                    Panel interno
+                </a>
+
+                <div class="menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- contenido central -->
+        <div class="hero-content">
+            <img src="{% static 'images/hero-auto.png' %}" alt="Auto" class="hero-car">
+            <h1>Tu camino empieza<br><span>AHORA</span></h1>
+        </div>
+
+    </div>
+
+</header>

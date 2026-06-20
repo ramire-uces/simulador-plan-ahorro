@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* base */
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f7f7f7;
+    color: #1f1f1f;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* hero */
+.hero {
+    background: #151424;
+    color: white;
+    min-height: 520px;
+    padding: 30px 60px 40px;
+}
+
+.hero-overlay {
+    width: 100%;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 34px;
+    height: auto;
+    display: block;
+}
+
+.menu {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-content {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.hero-car {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    font-weight: 700;
+}
+
+/* footer */
+.mock-footer {
+    background: #151424;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.btn-admin,
+.btn-admin:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-admin {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-admin:hover {
+    background: white;
+    color: #151424;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: auto;
+}

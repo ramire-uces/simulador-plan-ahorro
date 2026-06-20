@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel de Solicitudes{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="section">
+        <h2>Panel interno de solicitudes</h2>
+
+        <div class="box">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>DNI</th>
+                        <th>Email</th>
+                        <th>Modelo</th>
+                        <th>Plan</th>
+                        <th>Cuota</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for solicitud in solicitudes %}
+                    <tr>
+                        <td>{{ solicitud.creada_en|date:"d/m/Y H:i" }}</td>
+                        <td>{{ solicitud.nombre }}</td>
+                        <td>{{ solicitud.dni }}</td>
+                        <td>{{ solicitud.email }}</td>
+                        <td>{{ solicitud.modelo }}</td>
+                        <td>{{ solicitud.plan }}</td>
+                        <td>${{ solicitud.cuota_mensual }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7">Todavía no hay solicitudes cargadas.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}
