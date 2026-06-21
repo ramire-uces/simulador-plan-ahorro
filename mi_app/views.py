@@ -109,13 +109,18 @@ Ingreso neto mensual: ${solicitud.garante_ingreso_neto}
 Antigüedad laboral: {solicitud.garante_antiguedad} año/s
 """
 
-    send_mail(
-        asunto,
-        mensaje,
-        settings.DEFAULT_FROM_EMAIL,
-        [solicitud.email],
-        fail_silently=False,
-    )
+    try:
+        send_mail(
+            asunto,
+            mensaje,
+            settings.DEFAULT_FROM_EMAIL,
+            [solicitud.email],
+            fail_silently=False,
+        )
+        return True
+    except Exception as error:
+        print("Error enviando correo:", error)
+        return False
 
 
 @require_GET
@@ -208,11 +213,11 @@ def crear_solicitud(request):
     solicitud.dolar_oficial = dolar
     solicitud.save()
 
-    enviar_correo_confirmacion(solicitud)
+    correo_enviado = enviar_correo_confirmacion(solicitud)
 
     return JsonResponse({
         'ok': True,
-        'mensaje': 'La solicitud fue cargada correctamente.',
+        'mensaje': 'La solicitud fue cargada correctamente.' if correo_enviado else 'La solicitud fue cargada correctamente, pero no se pudo enviar el correo de confirmación.',
         'informe': {
             'modelo': solicitud.modelo,
             'plan': solicitud.plan,
